@@ -12,7 +12,7 @@ export default component$((props: CourseCardListProps) => {
   useStylesScoped$(styles);
 
   return (
-    <>
+    <div class="course-cards-list">
       {
         props.courses.map(course => (
             <div class="card-container">
@@ -21,6 +21,6 @@ export default component$((props: CourseCardListProps) => {
           )
         )
       }
-    </>
+    </div>
   );
 });

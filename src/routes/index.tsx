@@ -6,7 +6,7 @@ import { commonLinks } from "~/routes/head-links";
 export default component$(() => {
   return (
     <div>
-      <Link class="mindblow" href="/courses/">
+      <Link href="/courses/">
         COURSES
       </Link>
     </div>

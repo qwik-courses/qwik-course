@@ -24,9 +24,9 @@ export default component$(() => {
       onPending={() => <div>Loading...</div>}
       onRejected={() => <div>Error</div>}
       onResolved={(courses) => (
-        <>
+        <div class='courses-container'>
           <CourseCardList courses={courses} />
-        </>
+        </div>
       )}
     />
   );

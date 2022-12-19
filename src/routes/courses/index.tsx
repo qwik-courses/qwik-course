@@ -1,8 +1,9 @@
 import { component$, useStylesScoped$, Resource } from "@builder.io/qwik";
-import styles from './courses.css?inline';
+import styles from "./courses.css?inline";
 import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
 import { Course } from "~/models/course";
 import { useEndpoint } from "@builder.io/qwik-city";
+import CourseCard from "~/components/course-card/course-card";
 
 export const onGet: RequestHandler<Course[]> = async () => {
   const response = await fetch(`http://localhost:9000/api/courses`);
@@ -22,7 +23,12 @@ export default component$(() => {
       onRejected={() => <div>Error</div>}
       onResolved={(courses) => (
         <>
-          <h1>Courses: {courses.length}</h1>
+          {
+            courses.map(course => (
+                <CourseCard course={course} />
+              )
+            )
+          }
         </>
       )}
     />
@@ -30,5 +36,5 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Courses Page',
+  title: "Courses Page"
 };

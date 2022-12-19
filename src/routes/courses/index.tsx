@@ -4,6 +4,7 @@ import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
 import { Course } from "~/models/course";
 import { useEndpoint } from "@builder.io/qwik-city";
 import CourseCard from "~/components/course-card/course-card";
+import CourseCardList from "~/components/course-card-list/course-card-list";
 
 export const onGet: RequestHandler<Course[]> = async () => {
   const response = await fetch(`http://localhost:9000/api/courses`);
@@ -23,12 +24,7 @@ export default component$(() => {
       onRejected={() => <div>Error</div>}
       onResolved={(courses) => (
         <>
-          {
-            courses.map(course => (
-                <CourseCard course={course} />
-              )
-            )
-          }
+          <CourseCardList courses={courses} />
         </>
       )}
     />

@@ -43,6 +43,7 @@
   "dependencies": {
     "@types/express": "^4.17.15",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "material-components-web": "^14.0.0"
   }
 }

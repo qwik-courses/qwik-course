@@ -6,3 +6,7 @@
  *
  */
 
+/* global font */
+h1, h2, h3, h3, h5, h6, span:not(.material-icons), div, ul, li, p {
+    font-family: Inter, sans-serif;
+}

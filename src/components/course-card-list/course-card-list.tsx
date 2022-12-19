@@ -15,7 +15,9 @@ export default component$((props: CourseCardListProps) => {
     <>
       {
         props.courses.map(course => (
-            <CourseCard course={course} />
+            <div class="card-container">
+              <CourseCard course={course} />
+            </div>
           )
         )
       }

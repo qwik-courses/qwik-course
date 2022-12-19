@@ -5,6 +5,7 @@ import { Course } from "~/models/course";
 import { useEndpoint } from "@builder.io/qwik-city";
 import CourseCard from "~/components/course-card/course-card";
 import CourseCardList from "~/components/course-card-list/course-card-list";
+import { commonLinks } from "~/routes/head-links";
 
 export const onGet: RequestHandler<Course[]> = async () => {
   const response = await fetch(`http://localhost:9000/api/courses`);
@@ -32,5 +33,6 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Courses Page"
+  title: "Courses Page",
+  links: commonLinks
 };

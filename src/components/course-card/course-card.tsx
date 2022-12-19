@@ -11,7 +11,11 @@ export default component$( (props:CourseCardProps) => {
   useStylesScoped$(styles);
 
   return (
-    <h1>{props.course.description}</h1>
+  <div class="course-card">
+    <img class='card-image' src={props.course.iconUrl}/>
+    <div class='card-title'>{props.course.description}</div>
+    <div class='card-description'>{props.course.longDescription}</div>
+  </div>
   );
 
 });

@@ -13,6 +13,7 @@ export default component$((props: CourseCardListProps) => {
 
   return (
     <div class="course-cards-list">
+      <h2 class='title'>All Courses</h2>
       {
         props.courses.map(course => (
             <div class="card-container">

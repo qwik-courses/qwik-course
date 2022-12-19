@@ -14,11 +14,12 @@
 
 .card-title {
     font-size: 20px;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 .card-description {
-    padding: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 .card-actions {

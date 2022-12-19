@@ -6,9 +6,7 @@ import { commonLinks } from "~/routes/head-links";
 export default component$(() => {
   return (
     <div>
-      <Link href="/courses/">
-        COURSES
-      </Link>
+      <h1>Home Screen</h1>
     </div>
   );
 });
@@ -18,8 +16,7 @@ export const head: DocumentHead = {
   links: commonLinks,
   meta: [
     {
-      name: 'description',
-      content: 'Qwik site description',
+      name: 'description'
     },
   ],
 };

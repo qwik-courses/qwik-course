@@ -15,6 +15,11 @@ export default component$( (props:CourseCardProps) => {
     <img class='card-image' src={props.course.iconUrl}/>
     <div class='card-title'>{props.course.description}</div>
     <div class='card-description'>{props.course.longDescription}</div>
+    <div class='card-actions'>
+        <button>View</button>
+        <button>Edit</button>
+    </div>
+
   </div>
   );
 

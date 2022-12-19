@@ -19,5 +19,14 @@
 
 .card-description {
     padding: 5px;
+}
 
+.card-actions {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-actions button {
+    margin-right: 5px;
 }

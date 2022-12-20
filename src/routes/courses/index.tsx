@@ -52,7 +52,7 @@ export default component$(() => {
 
         return (
           <div class="courses-container">
-            <CourseCardList courses={courses} />
+            <CourseCardList courses={store.courses} />
           </div>
         );
       }}

@@ -10,7 +10,6 @@ import {
 import styles from "./courses.css?inline";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Course } from "~/models/course";
-import { RequestHandler, useEndpoint } from "@builder.io/qwik-city";
 import CourseCardList from "~/components/course-card-list/course-card-list";
 import { commonLinks } from "~/routes/head-links";
 

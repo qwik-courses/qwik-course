@@ -24,7 +24,7 @@ export default component$((props: CourseCardProps) => {
       <div class="card-title">{course.description}</div>
       <div class="card-description">{course.longDescription}</div>
       <div class="card-actions">
-        <button onClick$={() => nav.path = `/course-detail`}>
+        <button onClick$={() => nav.path = `/courses/${course.url}`}>
           View
         </button>
         <button onClick$={() => onCourseEdited(course)}>Edit</button>

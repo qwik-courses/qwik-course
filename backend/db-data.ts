@@ -369,7 +369,7 @@ export const LESSONS = {
   },
 
 
-  // PWA course-detail
+  // PWA [courseUrl]
 
   22: {
     id: 22,

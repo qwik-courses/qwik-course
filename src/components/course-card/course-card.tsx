@@ -1,35 +1,42 @@
 import { component$, useStore, useStylesScoped$ } from "@builder.io/qwik";
-import styles from './course-card.css?inline';
+import styles from "./course-card.css?inline";
 import { Course } from "~/models/course";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 
 interface CourseCardProps {
   course: Course;
 }
 
-export default component$( (props:CourseCardProps) => {
+
+export default component$((props: CourseCardProps) => {
 
   useStylesScoped$(styles);
 
-  const store = useStore({course: props.course}, {recursive: true});
+  const nav = useNavigate();
 
-  const {course} = store;
+  const store = useStore({ course: props.course }, { recursive: true });
+
+  const { course } = store;
 
   return (
-  <div class="course-card">
-    <img class='card-image' src={course.iconUrl}/>
-    <div class='card-title'>{course.description}</div>
-    <div class='card-description'>{course.longDescription}</div>
-    <div class='card-actions'>
-        <button>View</button>
+    <div class="course-card">
+      <img class="card-image" src={course.iconUrl} />
+      <div class="card-title">{course.description}</div>
+      <div class="card-description">{course.longDescription}</div>
+      <div class="card-actions">
+        <button onClick$={() => nav.path = `/course-detail`}>
+          View
+        </button>
         <button onClick$={() => onCourseEdited(course)}>Edit</button>
-    </div>
+        <button>Delete</button>
+      </div>
 
-  </div>
+    </div>
   );
 
 });
 
 export function onCourseEdited(course: Course) {
-  console.log(`Hello World`);
   course.description = `Edited: ${course.description}`;
 }
+

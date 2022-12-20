@@ -1,16 +1,18 @@
 import { component$, useStylesScoped$, Resource } from "@builder.io/qwik";
 import styles from "./courses.css?inline";
-import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
 import { Course } from "~/models/course";
-import { useEndpoint } from "@builder.io/qwik-city";
-import CourseCard from "~/components/course-card/course-card";
+import { RequestHandler, useEndpoint } from "@builder.io/qwik-city";
 import CourseCardList from "~/components/course-card-list/course-card-list";
 import { commonLinks } from "~/routes/head-links";
+
+
 
 export const onGet: RequestHandler<Course[]> = async () => {
   const response = await fetch(`http://localhost:9000/api/courses`);
   return response.json();
 };
+
 
 export default component$(() => {
 

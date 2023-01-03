@@ -2,6 +2,7 @@ import * as express from 'express';
 import {Application} from "express";
 import {getAllCourses, getCourseById} from "./get-courses.route";
 import {searchLessons} from "./search.route";
+import { deleteCourseById } from "./delete-course.route";
 
 
 const app: Application = express();
@@ -17,6 +18,8 @@ app.route('/').get((req, res) => {
 app.route('/api/courses').get(getAllCourses);
 
 app.route('/api/courses/:id').get(getCourseById);
+
+app.route('/api/courses/:id').delete(deleteCourseById);
 
 app.route('/api/lessons').get(searchLessons);
 

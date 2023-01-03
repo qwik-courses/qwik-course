@@ -34,7 +34,7 @@ export default component$((props: CourseCardProps) => {
           View
         </button>
         <button onClick$={() => onCourseEdited(course)}>Edit</button>
-        <button onClick$={() => onCourseDeleted(course, appState)}>Delete</button>
+        <button onClick$={() => onCourseDeleted(course.id, appState)}>Delete</button>
       </div>
 
     </div>
@@ -43,13 +43,25 @@ export default component$((props: CourseCardProps) => {
 });
 
 export function onCourseEdited(course: Course) {
+
   course.description = `Edited: ${course.description}`;
+
 }
 
-export async function onCourseDeleted(deleted: Course, appState: AppState) {
+export async function onCourseDeleted(courseId: string, appState: AppState) {
 
-  appState.courses = deleteCourse(deleted, appState.courses);
+  try {
 
-  console.log(`new store courses `, appState.courses);
+    await fetch(`http://localhost:9000/api/courses/${courseId}`, { method: "DELETE" });
+
+    appState.courses = deleteCourse(courseId, appState.courses);
+
+    console.log(`new store courses `, appState.courses);
+
+  }
+  catch(err) {
+    console.log(`Error deleting course, reason:`, err);
+    alert(`Could not delete course with id ${courseId}`);
+  }
 
 }

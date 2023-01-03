@@ -2,13 +2,13 @@ import { Course } from "~/models/course";
 import { AppState } from "~/store/app-state";
 
 
-export function deleteCourse(deleted: Course, courses:Course[]) {
+export function deleteCourse(courseId: string, courses:Course[]) {
 
-  console.log(`Deleting course with id ${deleted?.id}`);
+  console.log(`Deleting course with id ${courseId}`);
 
   const newCourses = [...courses];
 
-  const index = newCourses.findIndex(course => course.id == deleted.id);
+  const index = newCourses.findIndex(course => course.id == courseId);
 
   console.log(`Deleting course at index ${index}`);
 

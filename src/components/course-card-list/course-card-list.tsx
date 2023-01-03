@@ -1,23 +1,26 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useContext, useStylesScoped$ } from "@builder.io/qwik";
 import styles from './course-card-list.css?inline';
 import CourseCard from "~/components/course-card/course-card";
 import { Course } from "~/models/course";
+import { appContext } from "~/root";
 
 interface CourseCardListProps {
   courses: Course[];
 }
 
-export default component$((props: CourseCardListProps) => {
+export default component$(() => {
 
   useStylesScoped$(styles);
+
+  const appState = useContext(appContext);
 
   return (
     <div class="course-cards-list">
       <h2 class='title'>All Courses</h2>
       {
-        props.courses.map(course => (
+        appState.courses.map(course => (
             <div class="card-container">
-              <CourseCard course={course} />
+              <CourseCard courseId={course.id} />
             </div>
           )
         )

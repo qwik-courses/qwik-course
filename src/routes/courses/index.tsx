@@ -5,37 +5,21 @@ import {
   useResource$,
   createContext,
   useStore,
-  useContextProvider
+  useContextProvider, useContext
 } from "@builder.io/qwik";
 import styles from "./courses.css?inline";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Course } from "~/models/course";
 import CourseCardList from "~/components/course-card-list/course-card-list";
 import { commonLinks } from "~/routes/head-links";
+import { appContext } from "~/root";
 
-const APP_STATE_CONTEXT_ID = "AppState";
-
-export interface AppState {
-  courses: Course[];
-}
-
-export const appContext = createContext<AppState>(APP_STATE_CONTEXT_ID);
 
 export default component$(() => {
 
   useStylesScoped$(styles);
 
-  const store = useStore<AppState>({
-      courses: []
-    },
-    {
-      recursive: true
-    });
-
-  useContextProvider(
-    appContext,
-    store
-  );
+  const appState = useContext(appContext);
 
   const resource = useResource$<Course[]>(async () => {
     return getCourses();
@@ -48,11 +32,11 @@ export default component$(() => {
       onRejected={() => <div>Error</div>}
       onResolved={(courses) => {
 
-        store.courses = courses;
+        appState.courses = courses;
 
         return (
           <div class="courses-container">
-            <CourseCardList courses={store.courses} />
+            <CourseCardList />
           </div>
         );
       }}

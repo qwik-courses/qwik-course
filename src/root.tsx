@@ -1,8 +1,13 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { component$, createContext, useContextProvider, useStore, useStyles$ } from "@builder.io/qwik";
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
 import globalStyles from './global.css?inline';
+import { Course } from "~/models/course";
+import { APP_STATE_CONTEXT_ID, AppState } from "~/store/app-state";
+
+
+export const appContext = createContext<AppState>(APP_STATE_CONTEXT_ID);
 
 export default component$(() => {
   /**
@@ -12,6 +17,18 @@ export default component$(() => {
    * Dont remove the `<head>` and `<body>` elements.
    */
   useStyles$(globalStyles);
+
+  const store = useStore<AppState>({
+      courses: []
+    },
+    {
+      recursive: true
+    });
+
+  useContextProvider(
+    appContext,
+    store
+  );
 
   return (
     <QwikCityProvider>

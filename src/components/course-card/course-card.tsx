@@ -33,7 +33,7 @@ export default component$((props: CourseCardProps) => {
         <button onClick$={() => nav.path = `/courses/${course?.url}`}>
           View
         </button>
-        <button onClick$={() => onCourseEdited(course)}>Edit</button>
+        <button onClick$={() => nav.path = `/courses/${course?.url}/edit-course` }>Edit</button>
         <button onClick$={() => onCourseDeleted(course.id, appState)}>Delete</button>
       </div>
 
@@ -42,11 +42,7 @@ export default component$((props: CourseCardProps) => {
 
 });
 
-export function onCourseEdited(course: Course) {
 
-  course.description = `Edited: ${course.description}`;
-
-}
 
 export async function onCourseDeleted(courseId: string, appState: AppState) {
 

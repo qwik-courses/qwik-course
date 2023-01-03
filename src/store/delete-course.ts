@@ -1,5 +1,4 @@
 import { Course } from "~/models/course";
-import { AppState } from "~/store/app-state";
 
 
 export function deleteCourse(courseId: string, courses:Course[]) {

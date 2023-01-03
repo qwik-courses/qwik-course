@@ -5,6 +5,7 @@ import { Link, useNavigate } from "@builder.io/qwik-city";
 import { appContext } from "~/root";
 import { deleteCourse } from "~/store/delete-course";
 import { AppState } from "~/store/app-state";
+import { findCourseById } from "~/store/find-course-by-id";
 
 
 interface CourseCardProps {
@@ -22,7 +23,7 @@ export default component$((props: CourseCardProps) => {
 
   const appState = useContext(appContext);
 
-  const course = appState.courses.find(course => course.id == courseId) as Course;
+  const course = findCourseById(courseId, appState.courses) as Course;
 
   return (
     <div class="course-card">

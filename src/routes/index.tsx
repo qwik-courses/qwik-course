@@ -6,7 +6,7 @@ import { commonLinks } from "~/routes/head-links";
 export default component$(() => {
   return (
     <div>
-      <h1>Home Screen</h1>
+      <h1>Welcome to this Qwik Course!</h1>
     </div>
   );
 });

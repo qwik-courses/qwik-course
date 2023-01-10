@@ -32,7 +32,7 @@ Start by cloning the repository:
 
 Then switch to the 1-start branch:
 
-    git branch 1-start
+    git checkout 1-start
 
 Install your dependencies:
 

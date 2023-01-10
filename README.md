@@ -25,6 +25,10 @@ This repository contains a few branches:
 
 # How To install the course code
 
+You can find the course repository in the following url:
+
+    https://github.com/qwik-courses/qwik-course
+
 Start by cloning the repository:
 
     git clone https://github.com/qwik-courses/qwik-course.git

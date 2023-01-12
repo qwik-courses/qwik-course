@@ -7,10 +7,12 @@ interface HelloMessageProps {
 
 export const HelloMessage = component$<HelloMessageProps>((props) => {
 
+  const {message, courseVersion} = props;
+
   return (
     <div class='container'>
       {
-        <h1>{props.message}: version {props.courseVersion}</h1>
+        <h1>{message}: version {courseVersion}</h1>
       }
     </div>
   );

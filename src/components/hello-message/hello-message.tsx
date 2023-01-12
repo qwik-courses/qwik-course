@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 
 interface HelloMessageProps {
   message:string,
-  courseVersion:number
+  courseVersion?:number
 }
 
 export const HelloMessage = component$<HelloMessageProps>((props) => {

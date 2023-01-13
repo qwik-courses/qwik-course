@@ -14,7 +14,7 @@ export default component$(() => {
     <>
       <HelloMessage message="Hello World" courseVersion={1} />
       <HelloMessage message="Welcome to this Qwik Course" courseVersion={2} />
-      <HelloMessage message="Learn the Qwik Framework!"  />
+      <HelloMessage message="Learn the Qwik Framework!"  courseVersion={3}/>
 
       <button onClick$={sayHello}>Say Hello</button>
 

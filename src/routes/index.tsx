@@ -10,11 +10,13 @@ export default component$(() => {
     alert("Hello World!");
   });
 
+  const onShowMessageClicked = $((message:string) => alert(message));
+
   return (
     <>
-      <HelloMessage message="Hello World" courseVersion={1} />
-      <HelloMessage message="Welcome to this Qwik Course" courseVersion={2} />
-      <HelloMessage message="Learn the Qwik Framework!"  courseVersion={3}/>
+      <HelloMessage message="Hello World" courseVersion={1} onShowMessage={onShowMessageClicked}/>
+      <HelloMessage message="Welcome to this Qwik Course" courseVersion={2} onShowMessage={onShowMessageClicked}/>
+      <HelloMessage message="Learn the Qwik Framework!"  courseVersion={3} onShowMessage={onShowMessageClicked}/>
 
       <button onClick$={sayHello}>Say Hello</button>
 

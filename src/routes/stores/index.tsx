@@ -1,10 +1,5 @@
 import { component$, useStore } from "@builder.io/qwik";
 
-interface MessagesStore {
-  messages: string[],
-  index:number
-}
-
 
 export default component$(() => {
 
@@ -14,37 +9,18 @@ export default component$(() => {
     "Learn the Qwik Framework!"
   ];
 
-  const store = useStore({
-    index: 0,
-    messages
-  })
 
   return (
     <>
 
-      <h1>Qwik Stores: Examples {new Date().getTime()} </h1>
-
-      <Message store={store}  />
-
-      <button onClick$={() => store.index++}>Next Message</button>
+      <h1>Qwik Stores: </h1>
 
     </>
   );
 
 });
 
-interface MessageProps {
-  store: MessagesStore
-}
 
-export const Message = component$((props: MessageProps) => {
-
-  const {messages, index} = props.store;
-
-  return (
-    <h1>{messages[index]} {new Date().getTime()} </h1>
-  )
-})
 
 
 

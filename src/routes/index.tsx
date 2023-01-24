@@ -28,6 +28,7 @@ export default component$(() => {
 
       }
 
+      <div class='hello-message'>The CSS class hello-message is also applied here</div>
 
       <button onClick$={sayHello}>Say Hello</button>
 

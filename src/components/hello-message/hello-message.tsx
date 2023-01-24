@@ -1,4 +1,4 @@
-import { component$, PropFunction, useStyles$ } from "@builder.io/qwik";
+import { component$, PropFunction, useStylesScoped$ } from "@builder.io/qwik";
 
 import styles from './hello-message.css?inline';
 
@@ -11,7 +11,7 @@ interface HelloMessageProps {
 
 export const HelloMessage = component$<HelloMessageProps>((props) => {
 
-  useStyles$(styles);
+  useStylesScoped$(styles);
 
   const {message, courseVersion, onShowMessage, showButton} = props;
 

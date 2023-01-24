@@ -1,4 +1,6 @@
-import { component$, PropFunction } from "@builder.io/qwik";
+import { component$, PropFunction, useStyles$ } from "@builder.io/qwik";
+
+import styles from './hello-message.css?inline';
 
 interface HelloMessageProps {
   message:string,
@@ -9,13 +11,16 @@ interface HelloMessageProps {
 
 export const HelloMessage = component$<HelloMessageProps>((props) => {
 
+  useStyles$(styles);
+
   const {message, courseVersion, onShowMessage, showButton} = props;
 
   return (
     <div class='container'>
       {
         <>
-        <h1>{message}: version {courseVersion}</h1>
+
+        <div class='hello-message'>{message}: version {courseVersion}</div>
 
           {showButton && (
             <button onClick$={() => onShowMessage(message)}>Show Message</button>

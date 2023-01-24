@@ -20,9 +20,14 @@ export default component$(() => {
 
   return (
     <>
-      <HelloMessage showButton={true} message="Hello World" courseVersion={1} onShowMessage={onShowMessageClicked}/>
-      <HelloMessage showButton={false} message="Welcome to this Qwik Course" courseVersion={2} onShowMessage={onShowMessageClicked}/>
-      <HelloMessage showButton={false} message="Learn the Qwik Framework!"  courseVersion={3} onShowMessage={onShowMessageClicked}/>
+
+      { messages.map((message, index) => (
+        <HelloMessage key={index} message={message} courseVersion={index}
+                      showButton={true} onShowMessage={onShowMessageClicked} />
+      ))
+
+      }
+
 
       <button onClick$={sayHello}>Say Hello</button>
 

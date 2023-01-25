@@ -9,12 +9,18 @@ export default component$(() => {
     "Learn the Qwik Framework!"
   ];
 
+  const store = useStore({
+    index: 0
+  });
 
   return (
     <>
 
       <h1>Qwik Stores: </h1>
 
+      <h3>{messages[store.index]}</h3>
+
+      <button onClick$={() => store.index++}>Next Message</button>
     </>
   );
 

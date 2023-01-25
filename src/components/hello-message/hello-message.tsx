@@ -9,7 +9,7 @@ interface HelloMessageProps {
   onShowMessage: PropFunction<(message:string) => void>;
 }
 
-export const HelloMessage = component$<HelloMessageProps>((props) => {
+export const HelloMessage = component$((props: HelloMessageProps) => {
 
   useStylesScoped$(styles);
 

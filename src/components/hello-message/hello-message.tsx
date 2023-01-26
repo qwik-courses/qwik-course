@@ -15,12 +15,18 @@ export const HelloMessage = component$((props: HelloMessageProps) => {
 
   const {message, courseVersion, onShowMessage, showButton} = props;
 
+  const cssClasses = ['hello-message'];
+
+  if (courseVersion == 1) {
+    cssClasses.push('highlighted');
+  }
+
   return (
     <div class='container'>
       {
         <>
 
-        <div class='hello-message'>{message}: version {courseVersion}</div>
+        <div class={cssClasses}>{message}: version {courseVersion}</div>
 
           {showButton && (
             <button onClick$={() => onShowMessage(message)}>Show Message</button>

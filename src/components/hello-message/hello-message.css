@@ -5,3 +5,7 @@
     font-weight: bold;
     color:blue;
 }
+
+.hello-message.highlighted {
+    color: orange;
+}

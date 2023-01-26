@@ -21,12 +21,17 @@ export const HelloMessage = component$((props: HelloMessageProps) => {
     cssClasses.push('highlighted');
   }
 
+  const customStyles = (courseVersion == 2) ? {
+    color: 'red',
+    'text-decoration': 'underline'
+  } : {};
+
   return (
     <div class='container'>
       {
         <>
 
-        <div class={cssClasses}>{message}: version {courseVersion}</div>
+        <div class={cssClasses} style={customStyles}>{message}: version {courseVersion}</div>
 
           {showButton && (
             <button onClick$={() => onShowMessage(message)}>Show Message</button>

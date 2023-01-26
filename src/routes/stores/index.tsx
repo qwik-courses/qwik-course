@@ -15,15 +15,25 @@ export default component$(() => {
 
   return (
     <>
+      <h1>Qwik Stores: {new Date().getTime()} </h1>
 
-      <h1>Qwik Stores: </h1>
-
-      <h3>{messages[store.index]}</h3>
+      <Message message={messages[store.index]} />
 
       <button onClick$={() => store.index++}>Next Message</button>
     </>
   );
 
+});
+
+interface MessageProps {
+  message:string
+}
+
+export const Message = component$((props:MessageProps) => {
+
+  return (
+    <h3>{props.message} {new Date().getTime()}</h3>
+  );
 });
 
 

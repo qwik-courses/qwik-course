@@ -1,9 +1,11 @@
-import { component$, useStore } from "@builder.io/qwik";
+import { component$, createContext, useContext, useContextProvider, useStore } from "@builder.io/qwik";
 
 interface MessagesStore {
   messages: string[],
   index: number
 }
+
+export const MessagesContext = createContext<MessagesStore>("MESSAGES");
 
 export default component$(() => {
 
@@ -18,28 +20,28 @@ export default component$(() => {
     index: 0
   });
 
+  useContextProvider(MessagesContext, store)
+
   return (
     <>
-      <h1>Qwik Stores: {new Date().getTime()} </h1>
+      <h1>Qwik Stores: </h1>
 
-      <Message store={store} />
+      <Message />
 
       <button onClick$={() => store.index++}>Next Message</button>
     </>
-  );
+  )
+})
 
-});
 
-interface MessageProps {
-  store: MessagesStore
-}
+export const Message = component$(() => {
 
-export const Message = component$((props:MessageProps) => {
+  const store = useContext(MessagesContext);
 
-  const {messages, index} = props.store;
+  const {messages, index} = store;
 
   return (
-    <h3>{messages[index]} {new Date().getTime()}</h3>
+    <h3>{messages[index]} </h3>
   );
 });
 

@@ -11,4 +11,9 @@ export default component$(() => {
   )
 })
 
+export async function getCourses() {
+  const response = await fetch(`http://localhost:9000/api/courses`);
+  return response.json();
+}
+
 

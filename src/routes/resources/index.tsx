@@ -1,18 +1,22 @@
 import { component$, useResource$, Resource, $, useStore } from "@builder.io/qwik";
 import { Course } from "~/models/course";
 
-interface CoursesStore {
-  courses: Course[];
-}
-
 export default component$(() => {
 
-  const resource = useResource$<Course[]>(async () => {
+  const store = useStore({
+    reloadCounter: 0
+  });
+
+  const resource = useResource$<Course[]>((ctx) => {
+    ctx.track(() => store.reloadCounter);
     return getCourses();
   });
 
   return (
     <>
+
+      <button onClick$={() => store.reloadCounter++}>Reload Courses</button>
+
       <Resource
         value={resource}
         onPending={() => (

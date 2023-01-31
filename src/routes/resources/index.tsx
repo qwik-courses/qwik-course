@@ -1,11 +1,28 @@
-import { component$, useResource$, Resource } from "@builder.io/qwik";
+import { component$, useResource$, Resource, $, useStore } from "@builder.io/qwik";
 import { Course } from "~/models/course";
 
+interface CoursesStore {
+  courses: Course[];
+}
 
 export default component$(() => {
 
+  const store = useStore<CoursesStore>({
+    courses: []
+  });
+
+  const onLoadCourses = $(async () => {
+    const courses = await getCourses();
+    store.courses = courses;
+  });
+
   return (
     <>
+      <button onClick$={onLoadCourses}>Load Courses</button>
+
+      {store.courses.map(course => (
+        <h3>{course.description}</h3>
+      ))}
 
     </>
   )

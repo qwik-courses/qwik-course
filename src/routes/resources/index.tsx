@@ -7,23 +7,29 @@ interface CoursesStore {
 
 export default component$(() => {
 
-  const store = useStore<CoursesStore>({
-    courses: []
-  });
-
-  const onLoadCourses = $(async () => {
-    const courses = await getCourses();
-    store.courses = courses;
+  const resource = useResource$<Course[]>(async () => {
+    return getCourses();
   });
 
   return (
     <>
-      <button onClick$={onLoadCourses}>Load Courses</button>
-
-      {store.courses.map(course => (
-        <h3>{course.description}</h3>
-      ))}
-
+      <Resource
+        value={resource}
+        onPending={() => (
+          <h1>Loading ...</h1>
+        )}
+        onRejected={() => (
+          <h1>Request failed.</h1>
+        )}
+        onResolved={courses => (
+          <>
+            {
+              courses.map(course => (
+                <h3>{course.description}</h3>
+              ))
+            }
+          </>
+        )} />
     </>
   )
 })

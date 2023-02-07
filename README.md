@@ -1,17 +1,19 @@
 
-## Qwik In Depth Course
+## Qwik For Beginners Course
 
-This repository contains the code of the Qwik In Depth Course.
+This repository contains the code of the [Qwik For Beginners Course](https://qwikacademy.io/courses/qwik-course):
+
+![Qwik For Beginners Course](https://firebasestorage.googleapis.com/v0/b/onlinecoursehost-prod.appspot.com/o/wxbP3bGlesQVte1BCicdlqLot3B3%2FlYM0Ut6wXB42UdCwA75F%2Fthumbnail%2Fthumb_VmnNgc68mOeArrWZXNNV.jpg?alt=media)
 
 IMPORTANT: please use Node 18 (Long-term support version) to take this course.
 
 # Instructions for taking this course
 
-If you want, you can install the course code and code along as you go through the course.
+If you want, you can install the course code and code along as you go through the course. 
 
 Notice that this is optional, the course will still make perfect sense if you choose to just watch it and not code along as you go.
 
-But coding along is one of the best ways to learn, so I encourage you to try it out.
+But coding along is one of the best ways to learn, so I encourage you to try it out.  
 
 This section teaches you how to get your local development environment up and running, so that you can comfortably learn the framework in a stable environment.
 
@@ -56,9 +58,9 @@ To run the frontend part of our code, run the following command:
 
     npm start 
 
-# Other Courses
+# Other Courses 
 
-Here are some other courses from the same author ([Vasco Cavalheiro](https://www.linkedin.com/in/vascocavalheiro/)).
+Here are some other courses from the same author ([Vasco Cavalheiro](https://www.linkedin.com/in/vascocavalheiro/)). 
 
 # Angular Forms In Depth
 

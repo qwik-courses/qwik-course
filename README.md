@@ -2,6 +2,7 @@
 ## Qwik ForBeginners Course
 
 This repository contains the code of the [Qwik For Beginners Course](https://qwikacademy.io/courses/qwik-course):
+
 ![Qwik For Beginners Course](https://firebasestorage.googleapis.com/v0/b/onlinecoursehost-prod.appspot.com/o/wxbP3bGlesQVte1BCicdlqLot3B3%2FlYM0Ut6wXB42UdCwA75F%2Fthumbnail%2Fthumb_VmnNgc68mOeArrWZXNNV.jpg?alt=media)
 
 IMPORTANT: please use Node 18 (Long-term support version) to take this course.
